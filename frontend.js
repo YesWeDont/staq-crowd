@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if(begun) return;
         instance.dimensions.vertDoorWidth = instance.dimensions.horizDoorWidth = parseInt((/** @type {HTMLInputElement} */ (target)).value);
         unwrap(document.querySelector('span.width')).innerHTML = (instance.dimensions.vertDoorWidth/10).toString();
+        drawDoor();
     });
     
     unwrap(document.querySelector('input[type=submit]')).addEventListener('click', ({target})=>{
