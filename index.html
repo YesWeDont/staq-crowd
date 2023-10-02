@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taming the crowd</title>
+    <style>
+        .data *{ white-space: pre; }
+        * {font-size: large;}
+        body{ width: calc(100vw - 16px); padding: 8px; margin:0; }
+        .mobile-moment {display: none;}
+        .main {width: calc(100vw - 16px);}
+        @media screen and ((max-width: 675px) and (max-height: 900px)) {
+            .main {display: none}
+            .mobile-moment{
+                display: block;
+                position: absolute; top: 0; left:0;
+                height: calc(100vh);
+                width: calc(100vw);
+                background: red;
+                z-index: 1000;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body style="font-family: Consolas;">
+    <div class="mobile-moment">
+        <h1> Get a bigger screen </h1>
+    </div>
+    <div class="main">
+        <canvas></canvas>
+        <script type="module" src="./frontend.js"></script>
+        <div style="display:flex; flex-direction: row; width: max-content;">
+            <div class="settings" style="margin-right: 5vw;">
+                <h4>Settings</h4>
+                <input type="range" min="50" max="200" step="10" value="100" id="scount">
+                <label for="scount">Spawning <span class="scount">100</span> pairs</label>
+                <br>
+                <input type="range" min="20" max="100" step="5" value="60" id="interval">
+                <label for="interval">Spawning pair every <span class="interval">1.00</span>s</label>
+                <br>
+                <input type="checkbox" id="etiquette">
+                <label for="etiquette">Etiquette <span class="etiquette" style="font-weight: bold;">false</span></label>
+                <br>
+                <input type="range" min="3" max="10" step="1" value="4" id="width">
+                <label for="width">Door width <span class="width">4</span>m</label>
+                <br>
+                <input type="submit" value="Start!">
+            </div>
+            <div class="data">
+                <h4>Stats</h4>
+                <div>Time elapsed    <span class="t">  0</span>s</div>
+                <div>Average age     <span class="age">  0</span>s</div>
+                <div>Avg despawn age <span class="despawn-age">  0</span>s</div>
+                <div>Student count   <span class="count">  0</span> (<span class="red">0</span>R <span class="blue">0</span>B)</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
